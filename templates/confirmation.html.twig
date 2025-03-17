@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation d'Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/confirmation.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="form-container">
+        <h2>Inscription réussie ! 🎉</h2>
+        <p>Merci pour votre inscription. Vous pouvez maintenant vous connecter.</p>
+        <a href="{{ path('app_login') }}" class="submit-btn">Aller à la page de connexion</a>
+    </div>
+
+    <script src="{{ asset('js/confirmation.js') }}"></script>
+{% endblock %}
+
+
+
