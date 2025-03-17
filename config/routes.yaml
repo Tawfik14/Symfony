@@ -1,0 +1,31 @@
+controllers:
+  resource: ../src/Controller/
+  type: attribute
+
+index:
+  path: /
+  controller: App\Controller\HomeController::index
+
+app_login:
+  path: /login
+  controller: App\Controller\LoginController::login
+
+app_inscription:
+  path: /inscription
+  controller: App\Controller\InscriptionController::inscription
+
+security:
+  path: /security
+  controller: App\Controller\SecurityController::index
+
+confirmation:
+  path: /confirmation
+  controller: App\Controller\ConfirmationController::confirmation
+
+profile:
+  path: /profile
+  controller: App\Controller\UserController::profile
+
+app_logout:
+  path: /logout
+

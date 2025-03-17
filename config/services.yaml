@@ -1,0 +1,17 @@
+# config/services.yaml
+
+parameters:
+
+services:
+    # Active l'auto-configuration pour les services dans 'src/'
+    _defaults:
+        autowire: true      # Injecte automatiquement les dépendances
+        autoconfigure: true # Enregistre automatiquement les services
+
+    # Enregistre tous les contrôleurs comme services
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    # Autres services spécifiques ici...
+
