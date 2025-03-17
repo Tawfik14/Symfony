@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <script src="{{ asset('js/register.js') }}" defer></script>
+</head>
+<body>
+    <h1>Inscription</h1>
+
+    <!-- Zone d'affichage des messages d'erreur -->
+    {% for message in app.flashes('error') %}
+        <div style="color: red;">{{ message }}</div>
+    {% endfor %}
+    
+    {% for message in app.flashes('success') %}
+        <div style="color: green;">{{ message }}</div>
+    {% endfor %}
+
+    <form id="registerForm" method="post" action="{{ path('app_register') }}">
+        <p>Action du formulaire : {{ path('app_register') }}</p> {# 🔥 Debug #}
+
+        <input type="text" name="lastname" placeholder="Nom" required>
+        <input type="text" name="firstname" placeholder="Prénom" required>
+        <input type="date" name="dob" required>
+        
+        <select name="gender">
+            <option value="M">Homme</option>
+            <option value="F">Femme</option>
+        </select>
+
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="pseudo" placeholder="Pseudo" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+
+        <!-- Protection CSRF -->
+        <input type="hidden" name="_token" value="{{ csrf_token('authenticate') }}">
+
+        <button type="submit">S'inscrire</button>
+    </form>
+</body>
+</html>
+
